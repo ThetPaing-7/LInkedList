@@ -85,17 +85,70 @@ export default class LinkListed{
         }
     }
 
+    // remove the first node of lists, if empty lits return undefined
+    pop(){
+        let current = this.head
+
+        if(current != null){
+            this.head = this.head.next
+            return current.data
+        }else{
+            return undefined
+        }
+    }
+
+    // return true if value is in lists else false
+    contain(value){
+        let current = this.head
+        while(current != null){
+            if(current.data === value){
+                return true
+            }
+
+            current = current.next
+        }
+        return false
+    }
+
+
+    // return index of node containing given value
+    // return -1 if not found, if more than index are found return first index
+    findIndex(value){
+        let current = this.head
+        let index = 0
+        while(current != null){
+            if(current.data === value){
+                return index
+            }
+            index++
+            current = current.next
+        }
+        return -1
+    }
+
+    toString(){
+        let current = this.head 
+        if(current == null){
+            return ""
+        }else{
+            let values = []
+            while(current != null){
+                values.push(`(${current.data})`)
+                current = current.next
+            }
+
+            return `${values.join("->")}->null`
+        }     
+    }
 
     
 }
 
 let lists = new LinkListed()
 lists.append(10)
-lists.append(12)
 lists.append(13)
-lists.append(14)
-lists.prepend(5)
 lists.prepend(3)
+lists.prepend(7)
 
 
 
@@ -106,12 +159,19 @@ while(current != null){
     console.log(current.data)
     current = current.next
 }
-console.log(lists.size())
-console.log(lists.first())
-console.log(lists.tail())
-console.log("=============")
-console.log(lists.at(1))
 
+
+// console.log(lists.contain(0))
+// console.log(lists.size())
+// console.log(lists.first())
+// console.log(lists.tail())
+console.log("=============")
+// console.log(lists.at(1))
+console.log(lists.findIndex(10))
+console.log(lists.findIndex(11))
+console.log("=============")
+console.log(lists.toString())
 let second_lists = new LinkListed()
-console.log(second_lists.tail())
-console.log(second_lists.at(1))
+// console.log(second_lists.tail())
+// console.log(second_lists.at(1))
+// console.log(second_lists.contain(1))

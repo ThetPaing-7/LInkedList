@@ -1,8 +1,14 @@
 import LinkListed from "./main.js"
 
-let player = new LinkListed(2,3)
+// example uses class syntax - adjust as necessary
+const list = new LinkListed();
 
-test('Test One',()=>{
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
 
-    expect(player.add()).toBe(5)
-})
+
+console.log(list.toString())
