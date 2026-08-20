@@ -141,6 +141,19 @@ export default class LinkListed{
         }     
     }
 
+
+    // list.insertAt(1, 10, 11)
+// console.log(list.toString());
+//=> "( 1 ) -> ( 10 ) -> ( 11 ) -> ( 2 ) -> ( 3 ) -> null"
+    insertAt(index,...values){
+
+    }
+
+    // remove node at given index, index is out of bound throw rangeError
+    removeAt(){
+
+    }
+
     
 }
 
